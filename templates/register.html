@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project1 {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="register">BookEngine</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="register">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="search">Search</a>
+                <a class="nav-item nav-link" href="login">Log In</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="wrapper">
+            <div class="inner">
+                <img class="image-holder" src="../static/images/registerform.jpg" alt="">
+                <form action="/register" method="post">
+                    <h3 class="title">Hi, Welcome to Book Engine!</h3>
+                    <h6 class="title">Feel free to explore 5,000 of our book collections and leave your review.</h6>
+                    {% if message is not none %}
+                    <h6 class="msg">{{ message }}</h6>
+                    {% endif %}
+                    <div class="form-holder active">
+                        <input autocomplete="off" autofocus type="text" placeholder="username" class="form-control"
+                            name="username">
+                    </div>
+                    <div class="form-holder">
+                        <input type="password" placeholder="password" class="form-control" name="password">
+                    </div>
+                    <div class="form-holder">
+                        <input type="password" placeholder="confirm password" name="confirmation" class="form-control"
+                            style="font-size: 15px;">
+                    </div>
+                    <div class="form-login">
+                        <button type="submit">Sign up</button>
+                        <p>Already have an account? <a href="login">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
